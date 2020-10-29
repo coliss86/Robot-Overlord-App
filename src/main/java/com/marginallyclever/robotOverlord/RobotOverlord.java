@@ -219,7 +219,8 @@ public class RobotOverlord extends Entity implements MouseListener, MouseMotionL
  		viewport.attachedTo.set(camera.getFullPath());
 
 		Log.message("Create default scene");
-        scene.createSixiDemo();
+//        scene.createSixiDemo();
+        scene.createSkycamDemo();
 
         // initialize the screen picking system (to click on a robot and get its context sensitive menu)
         pickNow = false;

@@ -14,6 +14,7 @@ import com.marginallyclever.robotOverlord.entity.Entity;
 import com.marginallyclever.robotOverlord.entity.basicDataTypes.ColorEntity;
 import com.marginallyclever.robotOverlord.entity.scene.demoObjectEntity.TrayCabinet;
 import com.marginallyclever.robotOverlord.entity.scene.dhRobotEntity.sixi2.Sixi2;
+import com.marginallyclever.robotOverlord.entity.scene.robotEntity.skycam.Skycam;
 import com.marginallyclever.robotOverlord.entity.scene.shapeEntity.ShapeEntity;
 import com.marginallyclever.robotOverlord.log.Log;
 import com.marginallyclever.robotOverlord.swingInterface.view.ViewPanel;
@@ -106,6 +107,47 @@ public class Scene extends Entity {
 		trayCabinet2.setName("Cabinet");
 		addChild(trayCabinet2);
 		trayCabinet2.setPosition(new Vector3d(35,49.5,21.75));
+	}
+	
+	public void createSkycamDemo() {
+		
+		// adjust default camera
+		RobotOverlord ro = (RobotOverlord)getRoot();
+		ro.camera.setPosition(new Vector3d(40,-91,106));
+		ro.camera.setPan(-16);
+		ro.camera.setTilt(53);
+		ro.camera.setZoom(100);
+		ro.camera.update(0);
+		
+		// add some lights
+    	LightEntity light;
+
+		addChild(light = new LightEntity());
+		light.setName("Light");
+    	light.lightIndex=1;
+    	light.setPosition(new Vector3d(60,-60,160));
+    	light.setDiffuse(1,1,1,1);
+    	light.setSpecular(0.5f, 0.5f, 0.5f, 1.0f);
+    	light.attenuationLinear.set(0.0014);
+    	light.attenuationQuadratic.set(7*1e-6);
+    	light.setDirectional(true);
+    	
+		// add some collision bounds
+		BoxEntity box;
+
+		ShapeEntity table = new ShapeEntity("/table.stl");
+		addChild(table);
+		table.setName("Table");
+		table.setPosition(new Vector3d(0,0,-0.75));
+		//box.setSize(160,1,110);
+		//box.setPosition(new Vector3d(59.5,0,-2.5));
+		
+		// add a skycam device
+		Skycam skycam = new Skycam();
+		addChild(skycam);
+		Matrix3d m=new Matrix3d();
+		m.setIdentity();
+		skycam.setRotation(m);
 	}
 	
 	public void render(GL2 gl2) {

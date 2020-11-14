@@ -22,6 +22,7 @@ import com.marginallyclever.robotOverlord.entity.basicDataTypes.StringEntity;
 import com.marginallyclever.robotOverlord.entity.scene.PoseEntity;
 import com.marginallyclever.robotOverlord.log.Log;
 import com.marginallyclever.robotOverlord.swingInterface.view.ViewPanel;
+import com.marginallyclever.robotOverlord.swingInterface.InputManager;
 
 public class Skycam extends PoseEntity {
 	/**
@@ -109,6 +110,10 @@ public class Skycam extends PoseEntity {
 				// all finished
 				isPlaying=false;
 				playlist.clear();
+			}
+		} else {
+			if(InputManager.isReleased(InputManager.Source.STICK_R1)) {
+				queueDestination(cursor);
 			}
 		}
 		live.update(dt);

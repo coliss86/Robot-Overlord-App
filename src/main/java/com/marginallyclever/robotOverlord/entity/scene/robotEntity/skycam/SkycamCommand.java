@@ -98,9 +98,11 @@ public class SkycamCommand extends PoseEntity implements Cloneable, EntityFocusL
 	public String poseFKToString() {
 		Vector3d p = this.getPosition();
 		return "G0"
-				+" X"+StringHelper.formatDouble(p.x)
-				+" Y"+StringHelper.formatDouble(p.y)
-				+" Z"+StringHelper.formatDouble(p.z);
+				+" X"+StringHelper.formatDouble(p.x*10.0)
+				+" Y"+StringHelper.formatDouble(p.y*10.0)
+				+" Z"+StringHelper.formatDouble(p.z*10.0)
+				+" F"+StringHelper.formatDouble(feedrateSlider.get())
+				+" A"+StringHelper.formatDouble(accelerationSlider.get());
 	}
 	
 	/**

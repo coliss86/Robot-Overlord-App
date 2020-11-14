@@ -133,14 +133,14 @@ public class Scene extends Entity {
     	light.setDirectional(true);
     	
 		// add some collision bounds
-		BoxEntity box;
-
-		ShapeEntity table = new ShapeEntity("/table.stl");
-		addChild(table);
-		table.setName("Table");
-		table.setPosition(new Vector3d(0,0,-0.75));
-		//box.setSize(160,1,110);
-		//box.setPosition(new Vector3d(59.5,0,-2.5));
+//		BoxEntity box;
+//
+//		ShapeEntity table = new ShapeEntity("/table.stl");
+//		addChild(table);
+//		table.setName("Table");
+//		table.setPosition(new Vector3d(0,0,-0.75));
+//		//box.setSize(160,1,110);
+//		//box.setPosition(new Vector3d(59.5,0,-2.5));
 		
 		// add a skycam device
 		Skycam skycam = new Skycam();

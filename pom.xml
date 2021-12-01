@@ -8,7 +8,7 @@
 	<artifactId>RobotOverlord</artifactId>
 	<version>1.7.1</version>
 	<name>Robot Overlord</name>
-	<description>A friendly 3D user interface for controlling robots. 
+	<description>A friendly 3D user interface for controlling robots.
 If you like this project, please support us by buying Marginally Clever products.</description>
 	<url>http://www.marginallyclever.com/</url>
 
@@ -71,7 +71,7 @@ If you like this project, please support us by buying Marginally Clever products
 	<build>
 		<sourceDirectory>${project.basedir}/src/main</sourceDirectory>
 		<testSourceDirectory>${project.basedir}/src/test</testSourceDirectory>
-		<!-- See: http://maven.apache.org/plugins/maven-resources-plugin/examples/filter.html 
+		<!-- See: http://maven.apache.org/plugins/maven-resources-plugin/examples/filter.html
 			and http://stackoverflow.com/a/3697482 -->
 		<resources>
 			<resource>
@@ -89,7 +89,7 @@ If you like this project, please support us by buying Marginally Clever products
 				</excludes>
 			</resource>
 		</resources>
-		
+
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -131,14 +131,14 @@ If you like this project, please support us by buying Marginally Clever products
 						</goals>
 					</execution>
 				</executions>
-			</plugin><!-- 
+			</plugin><!--
 			<plugin>
 				<artifactId>maven-javadoc-plugin</artifactId>
 				<version>2.10.3</version>
 				<configuration>
 					<source>8</source>
 					<destDir>${project.basedir}/docs</destDir>
-				</configuration> 
+				</configuration>
 			</plugin> -->
 
 			<!-- Beginning of plugins defined originally only in Super POM -->
@@ -181,15 +181,9 @@ If you like this project, please support us by buying Marginally Clever products
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>3.0.0-M5</version>
 				<configuration>
-          			<parallel>methods</parallel>
-          			<threadCount>10</threadCount>
-			        <!-- <reuseForks>true</reuseForks> -->
-					<!-- <forkCount>0</forkCount> -->
-					<!-- <useSystemClassLoader>true</useSystemClassLoader> -->
-					<excludes>
-						<exclude>**/*GUITest</exclude>
-						<exclude>**/*IntegrationTest</exclude>
-					</excludes>
+					<parallel>methods</parallel>
+					<threadCount>10</threadCount>
+					<argLine>-Djava.awt.headless=true</argLine>
 				</configuration>
 			</plugin>
 			<!-- End of plugins defined originally only in Super POM -->
@@ -234,7 +228,7 @@ If you like this project, please support us by buying Marginally Clever products
 						</configuration>
 					</execution>
 				</executions>
-			</plugin><!-- 
+			</plugin><!--
 			<plugin>
 				<artifactId>maven-javadoc-plugin</artifactId>
 				<version>3.0.1</version>
@@ -257,17 +251,17 @@ If you like this project, please support us by buying Marginally Clever products
 				<artifactId>maven-project-info-reports-plugin</artifactId>
 				<version>2.8</version>
 			</plugin><!--
-		 	<plugin> 
-		 		<groupId>org.pitest</groupId> 
-		 		<artifactId>pitest-maven</artifactId> 
-				<version>1.5.2</version> 
+		 	<plugin>
+		 		<groupId>org.pitest</groupId>
+		 		<artifactId>pitest-maven</artifactId>
+				<version>1.5.2</version>
 				<configuration>
 					<targetClasses>
- 						<param>com.marginallyclever*</param> 
-					</targetClasses> 
+ 						<param>com.marginallyclever*</param>
+					</targetClasses>
 					<targetTests>
 						<param>com.marginallyclever*</param>
-					</targetTests> 
+					</targetTests>
 				</configuration>
 			</plugin> -->
 		</plugins>
@@ -312,33 +306,33 @@ If you like this project, please support us by buying Marginally Clever products
 			<artifactId>commons-io</artifactId>
 			<version>2.8.0</version>
 		</dependency>
-		
+
 		<!-- https://github.com/java-native/jssc/ -->
 		<dependency>
 			<groupId>io.github.java-native</groupId>
 			<artifactId>jssc</artifactId>
 			<version>2.9.2</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.jogamp.fat</groupId>
 			<artifactId>jogamp-fat</artifactId>
 			<version>2.4.0-rc-20200307</version>
 		</dependency>
-		
+
 		<!--
 		<dependency>
 			<groupId>org.jogamp.gluegen</groupId>
 			<artifactId>gluegen-rt-main</artifactId>
 			<version>2.3.2</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.jogamp.jogl</groupId>
 			<artifactId>jogl-all-main</artifactId>
 			<version>2.3.2</version>
 		</dependency> -->
-		
+
 		<!-- opencv -->
 <!--
 		<dependency>
@@ -346,7 +340,7 @@ If you like this project, please support us by buying Marginally Clever products
 		  	<artifactId>javacv-platform</artifactId>
 		  	<version>1.5.4</version>
 		</dependency> -->
-		<!--  alt opencv 	
+		<!--  alt opencv
 	    <dependency>
 	      <groupId>org.openpnp</groupId>
 	      <artifactId>opencv</artifactId>
@@ -420,7 +414,7 @@ If you like this project, please support us by buying Marginally Clever products
 			<artifactId>jinput</artifactId>
 			<version>${jinput.version}</version>
 		</dependency>
-		
+
 		<!-- https://mvnrepository.com/artifact/batik/batik-xml -->
 		<dependency>
 			<groupId>org.apache.xmlgraphics</groupId>
